@@ -2,8 +2,6 @@ import streamlit as st
 import base64
 import random
 
-
-@st.cache_data
 def initialize_game():
     doors = ['goat', 'goat', 'car']
     random.shuffle(doors)
@@ -119,15 +117,13 @@ def player_mode(history):
         st.write("**Game History:**")
         st.write(history)
 
-        if st.button("Play Again"):
-            # Reset the game state
-            st.session_state.step = 1
-            st.session_state.doors = initialize_game()
-            st.session_state.initial_choice = None
-            st.session_state.revealed_door = None
-            st.session_state.final_result = None
-            st.session_state.switch = None
-            st.rerun()
+    if st.button("Play Again"):
+        # Reset the game state
+        for key in ["step", "doors", "initial_choice", "revealed_door", "final_result", "switch"]:
+            if key in st.session_state.keys():
+                del st.session_state[key]
+        st.session_state.doors = initialize_game()  # Reinitialize doors
+        st.rerun()
 
 # Auto Mode: Simulate Multiple Games
 def auto_mode():
