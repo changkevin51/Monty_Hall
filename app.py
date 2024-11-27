@@ -195,3 +195,26 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+for i in range(5):
+    st.write("")
+# CSS for footer styling
+footer_style = """
+<style>
+.footer {
+    flex-shrink: 0;
+    color: #999999;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 0.8em;
+}
+</style>
+"""
+
+# Add footer content
+st.markdown(footer_style, unsafe_allow_html=True)
+st.markdown('<div class="footer">The Monty Hall problem is a brain teaser based on the American television game show "Lets Make a Deal" and named after its original host, Monty Hall.</div>', unsafe_allow_html=True)
+st.write("")
+st.markdown('<div class="footer">A project by Kevin Chang</div>', unsafe_allow_html=True)
