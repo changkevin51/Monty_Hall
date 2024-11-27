@@ -74,7 +74,7 @@ def player_mode(history):
         st.subheader("Step 1: Choose a Door")
         st.write("Pick a door (1, 2, or 3).")
         st.session_state.initial_choice = st.radio("Your choice:", [1, 2, 3]) - 1  # Adjust for 0-based indexing
-        if st.button("Confirm Choice"):
+        if st.button("Next Step"):
             st.session_state.step = 2
             st.rerun()
 
